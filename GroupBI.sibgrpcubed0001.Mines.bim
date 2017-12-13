@@ -1,0 +1,616 @@
+{
+  "name": "Mines",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "nl-BE",
+    "dataSources": [
+      {
+        "name": "SqlAzure sibelcosql.database.windows.net sibasicognos",
+        "connectionString": "Data Source=sibelcosql.database.windows.net;Initial Catalog=sibasicognos;Persist Security Info=True;User ID=SibelcoAdmin;Encrypt=True;TrustServerCertificate=False",
+        "impersonationMode": "impersonateServiceAccount",
+        "provider": "System.Data.SqlClient",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlAzure"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "ControllerOperatorHistory",
+        "columns": [
+          {
+            "name": "CONTROLLER_ID",
+            "dataType": "string",
+            "sourceColumn": "CONTROLLER_ID"
+          },
+          {
+            "name": "CONTROLLER_NAME",
+            "dataType": "string",
+            "sourceColumn": "CONTROLLER_NAME"
+          },
+          {
+            "name": "CONTROLLER_START_DT",
+            "dataType": "string",
+            "sourceColumn": "CONTROLLER_START_DT"
+          },
+          {
+            "name": "CONTROLLER_END_DT",
+            "dataType": "string",
+            "sourceColumn": "CONTROLLER_END_DT"
+          },
+          {
+            "name": "CONTROLLER_TYPE",
+            "dataType": "string",
+            "sourceColumn": "CONTROLLER_TYPE"
+          },
+          {
+            "name": "COAL_METAL_IND",
+            "dataType": "string",
+            "sourceColumn": "COAL_METAL_IND"
+          },
+          {
+            "name": "MINE_ID",
+            "dataType": "string",
+            "sourceColumn": "MINE_ID"
+          },
+          {
+            "name": "MINE_NAME",
+            "dataType": "string",
+            "sourceColumn": "MINE_NAME"
+          },
+          {
+            "name": "MINE_STATUS",
+            "dataType": "string",
+            "sourceColumn": "MINE_STATUS"
+          },
+          {
+            "name": "OPERATOR_ID",
+            "dataType": "string",
+            "sourceColumn": "OPERATOR_ID"
+          },
+          {
+            "name": "OPERATOR_NAME",
+            "dataType": "string",
+            "sourceColumn": "OPERATOR_NAME"
+          },
+          {
+            "name": "OPERATOR_START_DT",
+            "dataType": "string",
+            "sourceColumn": "OPERATOR_START_DT"
+          },
+          {
+            "name": "OPERATOR_END_DT",
+            "dataType": "string",
+            "sourceColumn": "OPERATOR_END_DT"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ControllerOperatorHistory",
+            "source": {
+              "query": "SELECT [mine].[ControllerOperatorHistory].* FROM [mine].[ControllerOperatorHistory]",
+              "dataSource": "SqlAzure sibelcosql.database.windows.net sibasicognos"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Count of CONTROLLER_ID",
+            "expression": "COUNTA([CONTROLLER_ID])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "mine"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "ControllerOperatorHistory"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [mine].[ControllerOperatorHistory].* FROM [mine].[ControllerOperatorHistory] "
+          }
+        ]
+      },
+      {
+        "name": "mines",
+        "columns": [
+          {
+            "name": "MINE_ID",
+            "dataType": "int64",
+            "sourceColumn": "MINE_ID"
+          },
+          {
+            "name": "CURRENT_MINE_NAME",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_MINE_NAME"
+          },
+          {
+            "name": "COAL_METAL_IND",
+            "dataType": "string",
+            "sourceColumn": "COAL_METAL_IND"
+          },
+          {
+            "name": "CURRENT_MINE_TYPE",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_MINE_TYPE"
+          },
+          {
+            "name": "CURRENT_MINE_STATUS",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_MINE_STATUS"
+          },
+          {
+            "name": "CURRENT_STATUS_DT",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_STATUS_DT"
+          },
+          {
+            "name": "CURRENT_CONTROLLER_ID",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_CONTROLLER_ID"
+          },
+          {
+            "name": "CURRENT_CONTROLLER_NAME",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_CONTROLLER_NAME"
+          },
+          {
+            "name": "CURRENT_OPERATOR_ID",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_OPERATOR_ID"
+          },
+          {
+            "name": "CURRENT_OPERATOR_NAME",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_OPERATOR_NAME"
+          },
+          {
+            "name": "STATE",
+            "dataType": "string",
+            "sourceColumn": "STATE"
+          },
+          {
+            "name": "BOM_STATE_CD",
+            "dataType": "int64",
+            "sourceColumn": "BOM_STATE_CD"
+          },
+          {
+            "name": "FIPS_CNTY_CD",
+            "dataType": "int64",
+            "sourceColumn": "FIPS_CNTY_CD"
+          },
+          {
+            "name": "FIPS_CNTY_NM",
+            "dataType": "string",
+            "sourceColumn": "FIPS_CNTY_NM"
+          },
+          {
+            "name": "CONG_DIST_CD",
+            "dataType": "int64",
+            "sourceColumn": "CONG_DIST_CD"
+          },
+          {
+            "name": "COMPANY_TYPE",
+            "dataType": "string",
+            "sourceColumn": "COMPANY_TYPE"
+          },
+          {
+            "name": "CURRENT_CONTROLLER_BEGIN_DT",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_CONTROLLER_BEGIN_DT"
+          },
+          {
+            "name": "DISTRICT",
+            "dataType": "string",
+            "sourceColumn": "DISTRICT"
+          },
+          {
+            "name": "OFFICE_CD",
+            "dataType": "string",
+            "sourceColumn": "OFFICE_CD"
+          },
+          {
+            "name": "OFFICE_NAME",
+            "dataType": "string",
+            "sourceColumn": "OFFICE_NAME"
+          },
+          {
+            "name": "ASSESS_CTRL_NO",
+            "dataType": "string",
+            "sourceColumn": "ASSESS_CTRL_NO"
+          },
+          {
+            "name": "PRIMARY_SIC_CD",
+            "dataType": "int64",
+            "sourceColumn": "PRIMARY_SIC_CD"
+          },
+          {
+            "name": "PRIMARY_SIC",
+            "dataType": "string",
+            "sourceColumn": "PRIMARY_SIC"
+          },
+          {
+            "name": "PRIMARY_SIC_CD_1",
+            "dataType": "int64",
+            "sourceColumn": "PRIMARY_SIC_CD_1"
+          },
+          {
+            "name": "PRIMARY_SIC_CD_SFX",
+            "dataType": "int64",
+            "sourceColumn": "PRIMARY_SIC_CD_SFX"
+          },
+          {
+            "name": "SECONDARY_SIC_CD",
+            "dataType": "int64",
+            "sourceColumn": "SECONDARY_SIC_CD"
+          },
+          {
+            "name": "SECONDARY_SIC",
+            "dataType": "string",
+            "sourceColumn": "SECONDARY_SIC"
+          },
+          {
+            "name": "SECONDARY_SIC_CD_1",
+            "dataType": "int64",
+            "sourceColumn": "SECONDARY_SIC_CD_1"
+          },
+          {
+            "name": "SECONDARY_SIC_CD_SFX",
+            "dataType": "int64",
+            "sourceColumn": "SECONDARY_SIC_CD_SFX"
+          },
+          {
+            "name": "PRIMARY_CANVASS_CD",
+            "dataType": "int64",
+            "sourceColumn": "PRIMARY_CANVASS_CD"
+          },
+          {
+            "name": "PRIMARY_CANVASS",
+            "dataType": "string",
+            "sourceColumn": "PRIMARY_CANVASS"
+          },
+          {
+            "name": "SECONDARY_CANVASS_CD",
+            "dataType": "int64",
+            "sourceColumn": "SECONDARY_CANVASS_CD"
+          },
+          {
+            "name": "SECONDARY_CANVASS",
+            "dataType": "string",
+            "sourceColumn": "SECONDARY_CANVASS"
+          },
+          {
+            "name": "CURRENT_103I",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_103I"
+          },
+          {
+            "name": "CURRENT_103I_DT",
+            "dataType": "string",
+            "sourceColumn": "CURRENT_103I_DT"
+          },
+          {
+            "name": "PORTABLE_OPERATION",
+            "dataType": "string",
+            "sourceColumn": "PORTABLE_OPERATION"
+          },
+          {
+            "name": "PORTABLE_FIPS_ST_CD",
+            "dataType": "int64",
+            "sourceColumn": "PORTABLE_FIPS_ST_CD"
+          },
+          {
+            "name": "DAYS_PER_WEEK",
+            "dataType": "int64",
+            "sourceColumn": "DAYS_PER_WEEK"
+          },
+          {
+            "name": "HOURS_PER_SHIFT",
+            "dataType": "int64",
+            "sourceColumn": "HOURS_PER_SHIFT"
+          },
+          {
+            "name": "PROD_SHIFTS_PER_DAY",
+            "dataType": "int64",
+            "sourceColumn": "PROD_SHIFTS_PER_DAY"
+          },
+          {
+            "name": "MAINT_SHIFTS_PER_DAY",
+            "dataType": "int64",
+            "sourceColumn": "MAINT_SHIFTS_PER_DAY"
+          },
+          {
+            "name": "NO_EMPLOYEES",
+            "dataType": "int64",
+            "sourceColumn": "NO_EMPLOYEES"
+          },
+          {
+            "name": "PART48_TRAINING",
+            "dataType": "string",
+            "sourceColumn": "PART48_TRAINING"
+          },
+          {
+            "name": "LONGITUDE",
+            "dataType": "string",
+            "sourceColumn": "LONGITUDE",
+            "dataCategory": "Longitude"
+          },
+          {
+            "name": "LATITUDE",
+            "dataType": "string",
+            "sourceColumn": "LATITUDE",
+            "dataCategory": "Latitude"
+          },
+          {
+            "name": "AVG_MINE_HEIGHT",
+            "dataType": "int64",
+            "sourceColumn": "AVG_MINE_HEIGHT"
+          },
+          {
+            "name": "MINE_GAS_CATEGORY_CD",
+            "dataType": "string",
+            "sourceColumn": "MINE_GAS_CATEGORY_CD"
+          },
+          {
+            "name": "METHANE_LIBERATION",
+            "dataType": "int64",
+            "sourceColumn": "METHANE_LIBERATION"
+          },
+          {
+            "name": "NO_PRODUCING_PITS",
+            "dataType": "int64",
+            "sourceColumn": "NO_PRODUCING_PITS"
+          },
+          {
+            "name": "NO_NONPRODUCING_PITS",
+            "dataType": "int64",
+            "sourceColumn": "NO_NONPRODUCING_PITS"
+          },
+          {
+            "name": "NO_TAILING_PONDS",
+            "dataType": "int64",
+            "sourceColumn": "NO_TAILING_PONDS"
+          },
+          {
+            "name": "PILLAR_RECOVERY_USED",
+            "dataType": "string",
+            "sourceColumn": "PILLAR_RECOVERY_USED"
+          },
+          {
+            "name": "HIGHWALL_MINER_USED",
+            "dataType": "string",
+            "sourceColumn": "HIGHWALL_MINER_USED"
+          },
+          {
+            "name": "MULTIPLE_PITS",
+            "dataType": "string",
+            "sourceColumn": "MULTIPLE_PITS"
+          },
+          {
+            "name": "MINERS_REP_IND",
+            "dataType": "string",
+            "sourceColumn": "MINERS_REP_IND"
+          },
+          {
+            "name": "SAFETY_COMMITTEE_IND",
+            "dataType": "string",
+            "sourceColumn": "SAFETY_COMMITTEE_IND"
+          },
+          {
+            "name": "MILES_FROM_OFFICE",
+            "dataType": "int64",
+            "sourceColumn": "MILES_FROM_OFFICE"
+          },
+          {
+            "name": "DIRECTIONS_TO_MINE",
+            "dataType": "string",
+            "sourceColumn": "DIRECTIONS_TO_MINE"
+          },
+          {
+            "name": "NEAREST_TOWN",
+            "dataType": "string",
+            "sourceColumn": "NEAREST_TOWN"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "mines",
+            "source": {
+              "query": "SELECT [mine].[mines].* FROM [mine].[mines]",
+              "dataSource": "SqlAzure sibelcosql.database.windows.net sibasicognos"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "mine"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "mines"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [mine].[mines].* FROM [mine].[mines] "
+          }
+        ]
+      },
+      {
+        "name": "MinesProdQuarterly",
+        "columns": [
+          {
+            "name": "MINE_ID",
+            "dataType": "int64",
+            "sourceColumn": "MINE_ID"
+          },
+          {
+            "name": "CURR_MINE_NM",
+            "dataType": "string",
+            "sourceColumn": "CURR_MINE_NM"
+          },
+          {
+            "name": "STATE",
+            "dataType": "string",
+            "sourceColumn": "STATE"
+          },
+          {
+            "name": "SUBUNIT_CD",
+            "dataType": "int64",
+            "sourceColumn": "SUBUNIT_CD"
+          },
+          {
+            "name": "SUBUNIT",
+            "dataType": "string",
+            "sourceColumn": "SUBUNIT"
+          },
+          {
+            "name": "CAL_YR",
+            "dataType": "int64",
+            "sourceColumn": "CAL_YR"
+          },
+          {
+            "name": "CAL_QTR",
+            "dataType": "int64",
+            "sourceColumn": "CAL_QTR"
+          },
+          {
+            "name": "FISCAL_YR",
+            "dataType": "int64",
+            "sourceColumn": "FISCAL_YR"
+          },
+          {
+            "name": "FISCAL_QTR",
+            "dataType": "int64",
+            "sourceColumn": "FISCAL_QTR"
+          },
+          {
+            "name": "AVG_EMPLOYEE_CNT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AVG_EMPLOYEE_CNT",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "HOURS_WORKED",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "HOURS_WORKED",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "COAL_PRODUCTION",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "COAL_PRODUCTION",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "COAL_METAL_IND",
+            "dataType": "string",
+            "sourceColumn": "COAL_METAL_IND"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "MinesProdQuarterly",
+            "source": {
+              "query": "SELECT [mine].[MinesProdQuarterly].* FROM [mine].[MinesProdQuarterly]",
+              "dataSource": "SqlAzure sibelcosql.database.windows.net sibasicognos"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sum of HOURS_WORKED",
+            "expression": "SUM([HOURS_WORKED])"
+          },
+          {
+            "name": "Sum of COAL_PRODUCTION",
+            "expression": "SUM([COAL_PRODUCTION])"
+          },
+          {
+            "name": "Sum of AVG_EMPLOYEE_CNT",
+            "expression": "SUM([AVG_EMPLOYEE_CNT])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "mine"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "MinesProdQuarterly"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [mine].[MinesProdQuarterly].* FROM [mine].[MinesProdQuarterly] "
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "c74f3c83-8575-47c2-b5bf-3a2d13acc5b3",
+        "fromTable": "ControllerOperatorHistory",
+        "fromColumn": "MINE_ID",
+        "toTable": "mines",
+        "toColumn": "MINE_ID"
+      },
+      {
+        "name": "b485ef6f-8938-48ff-9b6f-5f1e855849ae",
+        "fromTable": "MinesProdQuarterly",
+        "fromColumn": "MINE_ID",
+        "toTable": "mines",
+        "toColumn": "MINE_ID"
+      }
+    ],
+    "roles": [
+      {
+        "name": "ALLBI",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "Moskam@unimin.com",
+            "identityProvider": "AzureAD"
+          },
+          {
+            "memberName": "zbaloch@unimin.com",
+            "identityProvider": "AzureAD"
+          }
+        ]
+      }
+    ]
+  }
+}
